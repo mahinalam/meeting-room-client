@@ -1,0 +1,29 @@
+.testimonial-container {
+  /* background: #f0f2f5; */
+  background: #fbfbfe;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.testimonial-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-avatar-col {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.testimonial-text {
+  display: block;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 20px;
+}
