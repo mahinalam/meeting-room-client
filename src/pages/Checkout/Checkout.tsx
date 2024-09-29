@@ -197,6 +197,9 @@ const Checkout: React.FC = () => {
           onClick={handleConfirmBooking}
           loading={loading}
           disabled={!paymentMethod}
+          style={{
+            pointerEvents: !paymentMethod ? "none" : "auto",
+          }}
         >
           Confirm Booking
         </Button>

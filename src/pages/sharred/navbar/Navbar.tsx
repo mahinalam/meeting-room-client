@@ -110,6 +110,9 @@ const Navbar: React.FC = () => {
             <Menu.Item key="contact-us">
               <Link to="/contact">Contact Us</Link>
             </Menu.Item>
+            <Menu.Item key="about">
+              <Link to="/about">About Us</Link>
+            </Menu.Item>
           </Menu>
         </div>
 

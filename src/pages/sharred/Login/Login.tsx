@@ -11,6 +11,8 @@ import { verifyToken } from "../../../utils/verifyToken";
 import { useAppDispatch } from "../../../redux/hooks";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginSchema } from "../../../schemas/loginSchema";
 
 const Login = () => {
   const [login] = useLoginMutation();
@@ -38,7 +40,7 @@ const Login = () => {
   };
 
   return (
-    <PHForm onSubmit={onSubmit}>
+    <PHForm onSubmit={onSubmit} resolver={zodResolver(loginSchema)}>
       <div className="md:w-[30%] sm:w-[60%] w-[80%] mx-auto mt-[50px]">
         <h1 className="md:text-xl font-bold">Sign in</h1>
         <PHInput
@@ -76,7 +78,7 @@ const Login = () => {
             </span>
           </p>
           <p className="mt-3">All rights reserved.</p>
-          <p>Copyright (2006-2024) – Booking.com™</p>
+          <p>Copyright (2006-2024) – BookNest™</p>
         </div>
       </div>
     </PHForm>

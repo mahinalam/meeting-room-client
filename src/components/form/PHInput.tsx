@@ -21,7 +21,7 @@ const PHInput = ({
     <div style={{ marginBottom: "20px" }}>
       <Controller
         name={name}
-        render={({ field }) => (
+        render={({ field, fieldState: { error } }) => (
           <Form.Item label={label}>
             <Input
               {...field}
@@ -32,6 +32,7 @@ const PHInput = ({
               className="font-semibold"
               defaultValue={defaultValue}
             />
+            {error && <small className="text-red">{error.message}</small>}
           </Form.Item>
         )}
       />

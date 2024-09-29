@@ -39,12 +39,14 @@ const AllRooms = () => {
         pricePerSlot: Number(data.pricePerSlot),
         amenities: data.amenities,
       };
+
       if (selectedRoom) {
         const res = await updateRoom({
           id: selectedRoom.key,
           data: updatedRoomInfo,
         });
         console.log({ res });
+
         if ((res as any)?.data?.success) {
           toast.success((res as any)?.data?.message);
           refetch(); // <-- UPDATED: Refetch room data after update
@@ -61,6 +63,7 @@ const AllRooms = () => {
   };
 
   const handleUpdateClick = (room: any) => {
+    console.log(room);
     setSelectedRoom(room);
     setIsModalOpen(true);
   };
@@ -139,6 +142,7 @@ const AllRooms = () => {
       title: "Action",
       key: "x",
       render: (item: any) => {
+        console.log("items", item);
         return (
           <>
             <Button onClick={() => handleUpdateClick(item)}>Update</Button>
@@ -178,7 +182,7 @@ const AllRooms = () => {
       >
         <PHForm
           onSubmit={onSubmit}
-          defaultValues={selectedRoom}
+          key={selectedRoom?._id} // Ensure form re-renders when a new room is selected
           onReset={(resetFunction) => setFormResetter(() => resetFunction)}
         >
           <PHInput type="text" name="name" label="Name" />

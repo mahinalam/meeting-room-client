@@ -5,6 +5,9 @@ import React from "react";
 import { useSignupMutation } from "../../../../src/redux/features/auth/authApi";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
+import signupSchema from "../../../schemas/signupSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import PHSelect from "../../../components/form/PHSelect";
 
 const Signup = () => {
   const [signup] = useSignupMutation();
@@ -12,7 +15,8 @@ const Signup = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log(data);
     if (data) {
-      const res = await signup(data).unwrap();
+      const userInfo = { ...data, role: "user" };
+      const res = await signup(userInfo).unwrap();
       console.log("res", res);
       if (res?.success) {
         toast.success(res.message);
@@ -22,7 +26,7 @@ const Signup = () => {
   };
 
   return (
-    <PHForm onSubmit={onSubmit}>
+    <PHForm onSubmit={onSubmit} resolver={zodResolver(signupSchema)}>
       <div className="md:w-[30%] sm:w-[70%] w-[80%] mx-auto mt-[85px]">
         <h1 className="text-xl font-bold mb-5">Sign up</h1>
         <PHInput name="name" type="text" disabled={false} label="Name" />
@@ -34,11 +38,18 @@ const Signup = () => {
           label="Password"
         />
         <PHInput name="phone" type="text" disabled={false} label="Phone" />
-        <PHInput name="role" type="text" disabled={false} label="Role" />
         <PHInput name="address" type="text" disabled={false} label="Address" />
+        <PHSelect
+          options={[
+            { value: "user", label: "User" },
+            { value: "admin", label: "Admin" },
+          ]}
+          name="role"
+          label="Role"
+        />
         <Button
           htmlType="submit"
-          className="bg-blue-500 text-white hover:!bg-blue-600 hover:!text-white"
+          className="bg-blue-500 mt-5 text-white hover:!bg-blue-600 hover:!text-white"
           size="large"
           block
         >
@@ -59,7 +70,7 @@ const Signup = () => {
             </span>
           </p>
           <p className="mt-3">All rights reserved.</p>
-          <p>Copyright (2006-2024) – Booking.com™</p>
+          <p>Copyright (2006-2024) – BookNest™</p>
         </div>
       </div>
     </PHForm>

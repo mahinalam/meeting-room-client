@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="container mx-auto text-center text-gray-500 mt-4 ">
-        &copy; 2024 Booking.com. All rights reserved.
+        &copy; 2024 BookNest All rights reserved.
       </div>
     </footer>
   );

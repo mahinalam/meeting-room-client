@@ -1,50 +1,85 @@
-# React + TypeScript + Vite
+BookNest React Application
+This project is a feature-rich booking platform for rooms and services, built using React, Redux Toolkit, and React Router. The platform provides a seamless user experience for browsing, booking, and managing reservations.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Table of Contents
+2. Project Overview
+3. Technologies Used
+4. Features
+5. Getting Started
+6. Prerequisites
+7. Installation
+8. Running the Project
 
-Currently, two official plugins are available:
+Project Overview
+BookNest is a web-based application designed for users to book rooms or services. It includes both user and admin interfaces, enabling users to make reservations while allowing admins to manage rooms, bookings, and users.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application implements:
 
-## Expanding the ESLint configuration
+1. User Authentication: Users can register, log in, and view their bookings.
+2. Room Management: Users can view room listings and check availability.
+3. Booking System: Users can book rooms, selecting available dates and times.
+4. Admin Panel: Admins can manage rooms, bookings, and view analytics.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Technologies Used
+The project leverages modern web technologies to ensure a fast, scalable, and maintainable application.
 
-- Configure the top-level `parserOptions` property like this:
+1. React 18: The core library for building user interfaces.
+2. React Router 6: Manages client-side routing and navigation.
+3. Redux Toolkit: Manages global state, user sessions, and data fetching.
+4. Ant Design: Provides modern, pre-built UI components.
+5. Tailwind CSS: Used alongside Ant Design for responsive design and custom styling.
+6. Vercel/Netlify: Deployment platforms for hosting the production build.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Features
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. User Authentication: Login and sign-up functionality with protected routes for user-specific content.
+2. Room Listings: Browse available rooms with detailed descriptions and images.
+3. Room Details: View detailed information about a room, including availability and p2ricing.
+4. Booking System: Book rooms with real-time date and time selection.
+5. Admin Dashboard: Manage rooms, bookings, and users (protected route).
+6. Custom 404 Page: A user-friendly error page for non-existent routes.
+7. Responsive Design: Works across mobile, tablet, and desktop devices2.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Getting Started
+Prerequisites
+Make sure you have the following installed:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Node.js (version 14 or higher)
+2. npm (or yarn)
+   Installation
+   Clone the repository:
+
+bash
+Copy code
+git clone https://github.com/mahinalam/meeting-room-client.git
+Navigate into the project folder:
+
+bash
+Copy code
+cd meeting-room-client
+Install dependencies:
+
+bash
+Copy code
+npm install
+Or, if using yarn:
+
+bash
+Copy code
+yarn install
+Running the Project
+Development Mode
+To start the development server, run:
+
+bash
+Copy code
+npm run dev
+Visit http://localhost:3000 to view the app in your browser. The app will reload automatically if you make any changes.
+
+Production Mode
+To build the project for production:
+
+bash
+Copy code
+npm run build
+This will create an optimized build in the build/ directory.
