@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { Card, Carousel, Button, Modal } from "antd";
 import {
   UserOutlined,
@@ -28,7 +28,7 @@ export type TQueryParams = {
 };
 
 const RoomDetails: React.FC = () => {
-  const user = useAppSelector((state) => state.auth);
+  const userEmail = useAppSelector((state) => state.auth.user?.email);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const booking = useAppSelector((state) => state.booking);
   const { id } = useParams();
@@ -80,6 +80,9 @@ const RoomDetails: React.FC = () => {
   }
 
   const showModal = () => {
+    if (!userEmail) {
+      return navigate("/login");
+    }
     setIsModalOpen(true);
   };
 

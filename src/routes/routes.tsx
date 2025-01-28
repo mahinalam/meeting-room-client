@@ -34,9 +34,9 @@ const router = createBrowserRouter([
       {
         path: "rooms/:id",
         element: (
-          <ProtectedRoute role="user">
-            <RoomDetails />
-          </ProtectedRoute>
+          // <ProtectedRoute role="user">
+          <RoomDetails />
+          // </ProtectedRoute>
         ),
       },
 

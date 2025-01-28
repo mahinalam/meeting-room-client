@@ -1,0 +1,177 @@
+// import React, { useRef, useState } from "react";
+// import { Carousel } from "antd";
+
+// const CarouselComponent = () => {
+//   const carouselRef = useRef(null);
+//   const [currentSlide, setCurrentSlide] = useState(0);
+
+//   const images = [
+//     "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+//     "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+//     "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+//     "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+//     "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+//     "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+//     "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+//     "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+//   ];
+
+//   const slidesToShow = 6;
+
+//   // Function to handle slide change
+//   const handleSlideChange = (current: any) => {
+//     setCurrentSlide(current);
+//   };
+
+//   return (
+//     <div className="relative w-full  mx-auto">
+//       {/* Carousel */}
+//       <Carousel
+//         ref={carouselRef}
+//         slidesToShow={slidesToShow}
+//         slidesToScroll={1}
+//         infinite={false}
+//         dots={false}
+//         draggable
+//         afterChange={handleSlideChange} // Track the current slide index
+//       >
+//         {images.map((src, index) => (
+//           <div key={index} className="px-2 ">
+//             <img
+//               src={src}
+//               alt={`Slide ${index + 1}`}
+//               className="w-full h-auto rounded-lg shadow-md"
+//             />
+//             <div className="mt-3">
+//               <p className="font-bold text-title text-base mb-0">Dhaka</p>
+//               <p className="text-sm text-subTitle mt-1">200 Properties</p>
+//             </div>
+//           </div>
+//         ))}
+//       </Carousel>
+
+//       {/* Navigation Buttons */}
+//       {currentSlide > 0 && (
+//         <button
+//           onClick={() => carouselRef.current.prev()}
+//           className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow-md hover:bg-gray-100"
+//         >
+//           <svg
+//             xmlns="http://www.w3.org/2000/svg"
+//             viewBox="0 0 24 24"
+//             className="w-4 h- text-sm text-black"
+//           >
+//             <path d="M15.087 19.236a.9.9 0 0 1-.642-.266l-6.057-6.057A1.3 1.3 0 0 1 8 11.968c-.008-.35.123-.69.364-.945l6.057-6.057a.91.91 0 0 1 1.284 0 .895.895 0 0 1 0 1.284l-5.694 5.718 5.718 5.718a.896.896 0 0 1 0 1.284.88.88 0 0 1-.642.266"></path>
+//           </svg>
+//         </button>
+//       )}
+
+//       {currentSlide < images.length - slidesToShow && (
+//         <button
+//           onClick={() => carouselRef.current.next()}
+//           className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow-md hover:bg-gray-100"
+//         >
+//           <svg
+//             xmlns="http://www.w3.org/2000/svg"
+//             viewBox="0 0 24 24"
+//             className="w-4 h- text-sm text-black"
+//             // dataRtl="true"
+//           >
+//             <path d="M8.913 19.236a.9.9 0 0 0 .642-.266l6.057-6.057a1.3 1.3 0 0 0 .388-.945c.008-.35-.123-.69-.364-.945L9.58 4.966a.91.91 0 0 0-1.284 0 .896.896 0 0 0 0 1.284l5.694 5.718-5.718 5.718a.896.896 0 0 0 0 1.284.88.88 0 0 0 .642.266"></path>
+//           </svg>
+//         </button>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default CarouselComponent;
+
+import React, { useRef, useState } from "react";
+import { Carousel } from "antd";
+
+const CarouselComponent = () => {
+  const carouselRef = useRef<any>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const images = [
+    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
+  ];
+
+  const slidesToShow = 6;
+
+  const handleSlideChange = (current: any) => {
+    setCurrentSlide(current);
+  };
+
+  return (
+    <div className="relative w-full mx-auto">
+      {/* Carousel */}
+      <Carousel
+        ref={carouselRef}
+        slidesToShow={slidesToShow}
+        slidesToScroll={1}
+        infinite={false}
+        dots={false}
+        draggable
+        afterChange={handleSlideChange}
+      >
+        {images.map((src, index) => (
+          <div key={index} className="px-2">
+            <img
+              src={src}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-auto rounded-lg shadow-md"
+            />
+            <div className="mt-3">
+              <p className="font-bold text-title text-base mb-0">Dhaka</p>
+              <p className="text-sm text-subTitle mt-1">200 Properties</p>
+            </div>
+          </div>
+        ))}
+      </Carousel>
+
+      {/* Navigation Buttons */}
+      {currentSlide > 0 && (
+        <button
+          onClick={() => carouselRef.current?.prev()}
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow-md hover:bg-gray-100 z-10"
+          style={{ height: "40px", width: "40px", lineHeight: "40px" }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className="w-4 h-4 text-black mx-auto"
+          >
+            <path d="M15.087 19.236a.9.9 0 0 1-.642-.266l-6.057-6.057A1.3 1.3 0 0 1 8 11.968c-.008-.35.123-.69.364-.945l6.057-6.057a.91.91 0 0 1 1.284 0 .895.895 0 0 1 0 1.284l-5.694 5.718 5.718 5.718a.896.896 0 0 1 0 1.284.88.88 0 0 1-.642.266"></path>
+          </svg>
+        </button>
+      )}
+
+      {currentSlide < images.length - slidesToShow && (
+        <button
+          onClick={() => carouselRef.current?.next()}
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow-md hover:bg-gray-100 z-10"
+          style={{ height: "40px", width: "40px", lineHeight: "40px" }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className="w-4 h-4 text-black mx-auto"
+          >
+            <path d="M8.913 19.236a.9.9 0 0 0 .642-.266l6.057-6.057a1.3 1.3 0 0 0 .388-.945c.008-.35-.123-.69-.364-.945L9.58 4.966a.91.91 0 0 0-1.284 0 .896.896 0 0 0 0 1.284l5.694 5.718-5.718 5.718a.896.896 0 0 0 0 1.284.88.88 0 0 0 .642.266"></path>
+          </svg>
+        </button>
+      )}
+    </div>
+  );
+};
+
+export default CarouselComponent;

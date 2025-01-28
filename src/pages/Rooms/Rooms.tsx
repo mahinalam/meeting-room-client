@@ -44,7 +44,7 @@ const Rooms = () => {
   }
 
   return (
-    <div className="md:mt-[50px] sm:mt-[25px] mt-[20px]">
+    <div className="md:mt-[50px] sm:mt-[25px] mt-[20px] mx-[20px] sm:mx-[30px] max-w-[1480px] md:mx-auto">
       <section className="flex items-center justify-between gap-6">
         <div className="my-5 w-1/2">
           <Search

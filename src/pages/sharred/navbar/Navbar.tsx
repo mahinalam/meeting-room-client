@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
   );
 
   return (
-    <div style={{ padding: 5, background: "#000000" }}>
+    <div style={{ padding: 5, background: "#000000", width: "100%" }}>
       <div className="items-center flex justify-between mx-auto px-4">
         {/* Logo */}
         <Link to="/" className="text-white text-2xl font-bold">
@@ -110,9 +110,9 @@ const Navbar: React.FC = () => {
             <Menu.Item key="contact-us">
               <Link to="/contact">Contact Us</Link>
             </Menu.Item>
-            <Menu.Item key="about">
+            {/* <Menu.Item key="about">
               <Link to="/about">About Us</Link>
-            </Menu.Item>
+            </Menu.Item> */}
           </Menu>
         </div>
 
