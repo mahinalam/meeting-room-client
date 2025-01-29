@@ -6,6 +6,10 @@ import RoomCard from "../../components/sharred/RoomCard";
 import { useGetAllRoomsQuery } from "../../redux/features/room/roomApi";
 import { Input, Select } from "antd";
 import Loader from "../../components/sharred/Loader";
+import PropertyCard from "./PropertyCard";
+import Container from "../../components/sharred/Container";
+import FilterSection from "./FilterSection";
+import FilterComponent from "./FilterComponent";
 
 const { Search } = Input;
 
@@ -44,43 +48,28 @@ const Rooms = () => {
   }
 
   return (
-    <div className="md:mt-[50px] sm:mt-[25px] mt-[20px] mx-[20px] sm:mx-[30px] max-w-[1480px] md:mx-auto">
-      <section className="flex items-center justify-between gap-6">
-        <div className="my-5 w-1/2">
-          <Search
-            placeholder="Search your desired rooms"
-            enterButton="Search"
-            size="large"
-            allowClear
-            value={searchInput}
-            onChange={handleSearchChange}
-          />
+    <Container>
+      <div className="flex justify-between gap-4">
+        <div className="w-[25%]">
+          <section>
+            <div className="border-2 p-2">
+              <p className="text-base text-title font-bold mb-0">Filter by:</p>
+            </div>
+          </section>
+          <section>
+            <FilterComponent
+              count={100}
+              filterOptions={["4 starts", "swimming pool"]}
+              filterTitle="Popular filter"
+            />
+          </section>
+          {/* <FilterSection /> */}
         </div>
-        <div className="my-5 w-1/2 ">
-          <Select
-            placeholder="Sort by Price"
-            style={{ width: "80%" }}
-            onChange={handleSortChange}
-            options={[
-              { value: "ascending", label: "Price: Low to High" },
-              { value: "descending", label: "Price: High to Low" },
-            ]}
-            size="large"
-          />
+        <div className="w-[75%]">
+          <PropertyCard />
         </div>
-      </section>
-      <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4">
-        {filteredProducts?.length > 0 ? (
-          filteredProducts.map((room: any) => (
-            <Link to={`/rooms/${room._id}`} key={room._id}>
-              <RoomCard item={room} />
-            </Link>
-          ))
-        ) : (
-          <p className=" font-bold">No rooms found</p>
-        )}
       </div>
-    </div>
+    </Container>
   );
 };
 
