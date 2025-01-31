@@ -55,7 +55,7 @@ const Rooms = () => {
 
       <div className="flex justify-between gap-4">
         {/* filter section */}
-        <div className="w-[25%]">
+        <div className=" lg:block hidden w-[25%]">
           <section>
             <div className="border-2 p-2">
               <p className="text-base text-title font-bold mb-0">Filter by:</p>
@@ -84,13 +84,13 @@ const Rooms = () => {
         </div>
 
         {/* for list view */}
-        <div className="w-[75%]">
+        <div className="lg:block hidden w-[75%]">
           <PropertyCard />
         </div>
       </div>
 
       {/* for grid view */}
-      <div className="grid md:grid-cols-3 grid-cols-1 w-[75%] gap-4 ml-auto">
+      <div className="grid md:grid-cols-3 grid-cols-1 lg:w-[75%] w-full sm:grid-cols-2 gap-4 ml-auto">
         <Link to="/rooms/1">
           {" "}
           <GridRoomCard />

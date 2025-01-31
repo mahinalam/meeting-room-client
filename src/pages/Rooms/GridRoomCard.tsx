@@ -26,24 +26,24 @@ const GridRoomCard = () => {
           <div className="">
             <section className="flex w-full items-center gap-4 justify-between">
               <div className="flex">
-                <h4 className="text-base text-[#006CE4] bold mb-0">
+                <h4 className="md:text-base text-xl text-[#006CE4] bold mb-0">
                   Leonardo Royal Hotel Warsaw
                 </h4>
-                <p style={{ margin: "0", color: "yellow" }}>
-                  <Rate
-                    disabled
-                    allowClear={false}
-                    value={5}
-                    count={5}
-                    style={{
-                      fontSize: "14px",
-                      color: "yellow",
-                      letterSpacing: "2px",
-                    }}
-                  />
-                </p>
               </div>
             </section>
+            <p style={{ margin: "0", color: "yellow" }}>
+              <Rate
+                disabled
+                allowClear={false}
+                value={5}
+                count={5}
+                style={{
+                  fontSize: "14px",
+                  color: "yellow",
+                  letterSpacing: "2px",
+                }}
+              />
+            </p>
           </div>
           <div className="flex items-center mt-2  gap-2">
             <div>
@@ -51,18 +51,22 @@ const GridRoomCard = () => {
                 6.7
               </button>
             </div>
-            <p className="mb-0 text-title font-medium text-xs">Very Good</p>
-            <p className="mb-0 text-subTitle text-xs">1000 reviews</p>
+            <p className="mb-0 text-title font-medium text-sm md:text-xs">
+              Very Good
+            </p>
+            <p className="mb-0 text-subTitle md:text-xs text-sm">
+              1000 reviews
+            </p>
           </div>
         </section>
 
         {/* location section */}
         <section className="border-b-2 mt-1 pb-2">
-          <div className="flex items-center gap-2 text-xs font-medium text-[#006CE4] w-full">
+          <div className="flex items-center gap-2 md:text-xs text-sm font-medium text-[#006CE4] w-full">
             <p className="underline mb-0">Dhamrai, Dhaka</p>
             <p className="underline mb-0">Show on map</p>
           </div>
-          <p className="text-xs font-normal text-title w-full mb-0">
+          <p className="md:text-xs text-sm font-normal text-title w-full mb-0 md:mt-0 mt-1">
             1 km from downtown
           </p>
         </section>
@@ -75,9 +79,11 @@ const GridRoomCard = () => {
         </section>
 
         {/* price section */}
-        <div className="text-end pt-12">
+        <div className="text-end md:pt-12 mt-8">
           <p className="text-subTitle text-xs mb-0">1 night, 2 adults</p>
-          <p className="font-medium text-xl text-title mb-0">BDT 1000</p>
+          <p className="font-medium md:text-xl text-lg text-title mb-0">
+            BDT 1000
+          </p>
           <p className="text-subTitle text-xs mb-0">Includes taxes and fees</p>
         </div>
       </div>
