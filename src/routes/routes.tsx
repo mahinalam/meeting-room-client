@@ -11,12 +11,9 @@ import Checkout from "../pages/Checkout/Checkout";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import { routeGenerator } from "../utils/routesGenerator";
 import { adminPaths } from "./admin-route";
-// import NotFound from "../pages/notFound/notFound";
 import MyBookings from "../pages/user/MyBookings";
 import ProtectedRoute from "./ProtectedRoute";
 import NotFound from "../pages/notFound/NotFound";
-// import NotFound from "../pages/notFound/NotFound";
-// import NotFound from "../pages/notFound/notFound";
 
 const router = createBrowserRouter([
   {

@@ -8,8 +8,9 @@ import { Input, Select } from "antd";
 import Loader from "../../components/sharred/Loader";
 import PropertyCard from "./PropertyCard";
 import Container from "../../components/sharred/Container";
-import FilterSection from "./FilterSection";
 import FilterComponent from "./FilterComponent";
+import GridRoomCard from "./GridRoomCard";
+import PriceSlider from "./PriceSlider";
 
 const { Search } = Input;
 
@@ -18,6 +19,7 @@ const Rooms = () => {
     useGetAllRoomsQuery(undefined);
   const [searchInput, setSearchInput] = useState("");
   const [selectedSort, setSelectedSort] = useState("");
+  const [viewRoomType, setViewRoomType] = useState("list");
 
   if (roomInfoLoading) {
     return <Loader />;
@@ -49,25 +51,52 @@ const Rooms = () => {
 
   return (
     <Container>
+      {/* list and grid btn */}
+
       <div className="flex justify-between gap-4">
+        {/* filter section */}
         <div className="w-[25%]">
           <section>
             <div className="border-2 p-2">
               <p className="text-base text-title font-bold mb-0">Filter by:</p>
             </div>
           </section>
+
           <section>
             <FilterComponent
               count={100}
               filterOptions={["4 starts", "swimming pool"]}
               filterTitle="Popular filter"
             />
+            <FilterComponent
+              count={100}
+              filterOptions={["4 starts", "swimming pool"]}
+              filterTitle="Popular filter"
+            />
+            <FilterComponent
+              count={100}
+              filterOptions={["4 starts", "swimming pool"]}
+              filterTitle="Popular filter"
+            />
           </section>
-          {/* <FilterSection /> */}
+          {/* <price slider filter /> */}
+          <PriceSlider />
         </div>
+
+        {/* for list view */}
         <div className="w-[75%]">
           <PropertyCard />
         </div>
+      </div>
+
+      {/* for grid view */}
+      <div className="grid md:grid-cols-3 grid-cols-1 w-[75%] gap-4 ml-auto">
+        <Link to="/rooms/1">
+          {" "}
+          <GridRoomCard />
+        </Link>
+        <GridRoomCard />
+        <GridRoomCard />
       </div>
     </Container>
   );

@@ -11,7 +11,7 @@ const FilterComponent = ({
   count: string | number;
 }) => {
   return (
-    <div className="p-2 border-2">
+    <div className="p-2 border-2 border-t-0">
       <section>
         <p className="text-sm font-bold text-title mb-0 pb-1">{filterTitle}</p>
       </section>
