@@ -7,6 +7,8 @@ const RoomDetails = () => {
   return (
     <Container>
       <RoomDetailsCard />
+
+      {/* TODO: complete roomDetails */}
     </Container>
   );
 };

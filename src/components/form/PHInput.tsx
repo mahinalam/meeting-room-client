@@ -18,11 +18,11 @@ const PHInput = ({
   defaultValue,
 }: TInputProps) => {
   return (
-    <div style={{ marginBottom: "20px" }}>
+    <div>
       <Controller
         name={name}
         render={({ field, fieldState: { error } }) => (
-          <Form.Item label={label}>
+          <Form.Item label={label} className="font-semibold mb-0">
             <Input
               {...field}
               type={type}

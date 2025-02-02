@@ -14,6 +14,7 @@ import { adminPaths } from "./admin-route";
 import MyBookings from "../pages/user/MyBookings";
 import ProtectedRoute from "./ProtectedRoute";
 import NotFound from "../pages/notFound/NotFound";
+import BookingDetails from "../pages/bookingDetails/BookingDetails";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/my-bookings",
         element: <MyBookings />,
+      },
+      {
+        path: "/booking-details",
+        element: <BookingDetails />,
       },
       {
         path: "checkout",

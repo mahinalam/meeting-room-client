@@ -51,52 +51,71 @@ const Rooms = () => {
 
   return (
     <Container>
-      {/* list and grid btn */}
+      <div className="relative">
+        {" "}
+        {/* list and grid btn */}
+        <div className="flex justify-between gap-4">
+          {/* filter section */}
+          <div className=" lg:block hidden w-[25%] ">
+            <section>
+              <div className="border-2 p-2">
+                <p className="text-base text-title font-bold mb-0">
+                  Filter by:
+                </p>
+              </div>
+            </section>
 
-      <div className="flex justify-between gap-4">
-        {/* filter section */}
-        <div className=" lg:block hidden w-[25%]">
-          <section>
-            <div className="border-2 p-2">
-              <p className="text-base text-title font-bold mb-0">Filter by:</p>
-            </div>
-          </section>
+            <section>
+              <FilterComponent
+                count={100}
+                filterOptions={["4 starts", "swimming pool"]}
+                filterTitle="Popular filter"
+              />
+              <FilterComponent
+                count={100}
+                filterOptions={["4 starts", "swimming pool"]}
+                filterTitle="Popular filter"
+              />
+              <FilterComponent
+                count={100}
+                filterOptions={["4 starts", "swimming pool"]}
+                filterTitle="Popular filter"
+              />
+            </section>
+            {/* <price slider filter /> */}
+            <PriceSlider />
+          </div>
 
-          <section>
-            <FilterComponent
-              count={100}
-              filterOptions={["4 starts", "swimming pool"]}
-              filterTitle="Popular filter"
-            />
-            <FilterComponent
-              count={100}
-              filterOptions={["4 starts", "swimming pool"]}
-              filterTitle="Popular filter"
-            />
-            <FilterComponent
-              count={100}
-              filterOptions={["4 starts", "swimming pool"]}
-              filterTitle="Popular filter"
-            />
-          </section>
-          {/* <price slider filter /> */}
-          <PriceSlider />
+          {/* for list view */}
+          <div className="lg:block hidden w-[75%]">
+            <PropertyCard />
+          </div>
         </div>
-
-        {/* for list view */}
-        <div className="lg:block hidden w-[75%]">
-          <PropertyCard />
-        </div>
-      </div>
-
-      {/* for grid view */}
-      <div className="grid md:grid-cols-3 grid-cols-1 lg:w-[75%] w-full sm:grid-cols-2 gap-4 ml-auto">
-        <Link to="/rooms/1">
-          {" "}
+        {/* for grid view */}
+        <div className="grid md:grid-cols-3 grid-cols-1 lg:w-[75%] w-full sm:grid-cols-2 gap-4 ml-auto">
+          <Link to="/rooms/1">
+            {" "}
+            <GridRoomCard />
+          </Link>
           <GridRoomCard />
-        </Link>
-        <GridRoomCard />
-        <GridRoomCard />
+          <GridRoomCard />
+        </div>
+        {/* may also like section */}
+        <div className="lg:w-[75%] ml-auto">
+          <h1 className="pt-5 md:text-xl text-lg font-bold ">
+            You may also like
+          </h1>
+          <div className="w-full">
+            <div className="grid md:grid-cols-3 grid-cols-1  w-full sm:grid-cols-2 gap-4 ml-auto">
+              <Link to="/rooms/1">
+                {" "}
+                <GridRoomCard />
+              </Link>
+              <GridRoomCard />
+              <GridRoomCard />
+            </div>
+          </div>
+        </div>
       </div>
     </Container>
   );

@@ -6,7 +6,7 @@ import HeartIcon from "../../components/sharred/HeartIcon";
 
 const PropertyCard = () => {
   return (
-    <div className="flex p-4 border-2  justify-between gap-4 relative">
+    <div className="flex p-4 border-2  justify-between gap-4 relative cursor-pointer">
       {/* image section */}
       <section>
         <div className="w-full relative">
@@ -127,7 +127,6 @@ const PropertyCard = () => {
             <span className="flex items-center bg-[#006CE4] text-white p-2 gap-2 rounded-md font-medium">
               <button className="text-sm">See availability</button>
               <span>
-                {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

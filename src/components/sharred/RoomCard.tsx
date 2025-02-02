@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
-
+import "rc-rate/assets/index.css";
 const RoomCard = ({ item }: any) => {
   console.log("from room card", item);
   const { _id, name, image, pricePerSlot, capacity } = item;

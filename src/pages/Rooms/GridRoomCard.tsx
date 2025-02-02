@@ -6,7 +6,7 @@ import HeartIcon from "../../components/sharred/HeartIcon";
 
 const GridRoomCard = () => {
   return (
-    <div className="relative">
+    <div className="relative cursor-pointer">
       {/* image section */}
       <div className="absolute top-2 right-2">
         <HeartIcon />

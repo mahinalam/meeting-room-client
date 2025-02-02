@@ -4,90 +4,111 @@ import AminitiesCard from "./AminitiesCard";
 
 const RoomDetailsCard = () => {
   return (
-    <Container>
+    <div>
       {/* title & save section */}
-      <div className="flex items-center justify-between mb-4">
-        <div className="text-title text-2xl font-bold">Room title</div>
-        <div className="flex items-center">
-          <span className="flex items-center gap-1">
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
-                />
-              </svg>
+      <div className="md:block hidden">
+        <div className="flex items-center justify-between mb-4">
+          <div className="text-title text-2xl font-bold">Room title</div>
+          <div className="flex items-center">
+            <span className="flex items-center gap-1">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
+                  />
+                </svg>
+              </span>
+              <span>Share</span>
             </span>
-            <span>Share</span>
-          </span>
-          <span className="flex items-center gap-1">
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                />
-              </svg>
+            <span className="flex items-center gap-1">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                  />
+                </svg>
+              </span>
+              <span>Save</span>
             </span>
-            <span>Save</span>
-          </span>
+          </div>
         </div>
       </div>
 
       {/* images section */}
-      <section className="grid grid-cols-2 gap-2">
-        {/* left image */}
-        <div>
+      <div>
+        {/* for large devices */}
+        <div className="md:block hidden">
+          <section className=" grid grid-cols-2 gap-2">
+            {/* left image */}
+            <div>
+              <img
+                src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
+                alt=""
+                className="rounded-s-xl"
+              />
+            </div>
+            {/* right images */}
+            <div className="grid grid-cols-2 gap-2">
+              <img
+                src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
+                alt=""
+                className=""
+              />
+              <img
+                src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
+                alt=""
+              />
+              <img
+                src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
+                alt=""
+              />
+              <img
+                src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
+                alt=""
+              />
+            </div>
+          </section>
+        </div>
+        <div className="block md:hidden">
+          {/* for small devices */}
           <img
             src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
             alt=""
             className="rounded-s-xl"
           />
         </div>
-        {/* right images */}
-        <div className="grid grid-cols-2 gap-2">
-          <img
-            src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
-            alt=""
-            className=""
-          />
-          <img
-            src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
-            alt=""
-          />
-          <img
-            src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
-            alt=""
-          />
-          <img
-            src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
-            alt=""
-          />
-        </div>
-      </section>
-
+      </div>
       {/* room  info */}
-      <div className="flex flex-col mt-6">
-        <p className="text-[22px] text-title font-semibold mb-0">
+      <div className=" md:mt-6 mt-4">
+        <p className="md:hidden block w-10/12 sm:w-full text-[22px] text-title font-medium mb-0">
           Room in Maratua, Indonesia
         </p>
-        <p className="mb-0 text-lg">2 bedrooms4 bedsShared bathroom</p>
+        <div className="md:py-0 py-4">
+          <p className="md:text-[22px] text-sm text-title font-semibold mb-0">
+            Room in Maratua, Indonesia
+          </p>
+          <p className="mb-0 md:text-lg text-sm text-title ">
+            2 bedrooms4 bedsShared bathroom
+          </p>
+        </div>
         <div className="flex items-center gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +125,7 @@ const RoomDetailsCard = () => {
             />
           </svg>
 
-          <span className="mb-0 text-lg">No reviews yet</span>
+          <span className="mb-0 text-lg text-subTitle">No reviews yet</span>
         </div>
       </div>
 
@@ -120,8 +141,10 @@ const RoomDetailsCard = () => {
           </section>
           <section>
             <div>
-              <p className="mb-0 text-xl text-title">Hosted By Mahin</p>
-              <p className="mb-0 text-subTitle">3 years hosting</p>
+              <p className="mb-0 md:text-xl font-semibold text-base text-title">
+                Hosted By Mahin
+              </p>
+              <p className="mb-0 text-subTitle text-base">3 years hosting</p>
             </div>
           </section>
         </div>
@@ -153,8 +176,8 @@ const RoomDetailsCard = () => {
       </section>
 
       {/* about place section */}
-      <section className="border-y-2 py-8">
-        <h1 className="text-[22px] font-medium text-title pb-2">
+      <section className="border-y-2 py-6 md:py-8 ">
+        <h1 className="text-[22px]  font-medium text-title pb-2">
           About this place
         </h1>
         <p>
@@ -207,11 +230,11 @@ const RoomDetailsCard = () => {
           </svg>
           <span className="text-title">Wifi</span>
         </div>
-        <button className="p-3 border-2 rounded-xl mt-6 ">
+        <button className="p-3 border-2 md:w-fit w-full rounded-xl mt-6 ">
           Show all aminities
         </button>
       </section>
-    </Container>
+    </div>
   );
 };
 
