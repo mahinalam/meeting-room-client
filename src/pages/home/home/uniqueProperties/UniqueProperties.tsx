@@ -2,11 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import { Carousel } from "antd";
 import Card from "../../../../components/sharred/Card";
 import Title from "../Title";
+import { useGetAllRoomsQuery } from "../../../../redux/features/room/roomApi";
+import { IRoom } from "../../../../types";
+import { Link } from "react-router-dom";
 
 const UniqueProperties = () => {
   const carouselRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(4);
+
+  // fetch all rooms
+  const { data: allRooms, isLoading: roomDataLoading } =
+    useGetAllRoomsQuery(null);
 
   const images = [
     "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
@@ -47,6 +54,11 @@ const UniqueProperties = () => {
     };
   }, []);
 
+  //  handle roomData loading state
+  if (roomDataLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div className="mt-[20px] md:mt-[30px] relative">
       {/* Title Section */}
@@ -71,9 +83,18 @@ const UniqueProperties = () => {
             afterChange={handleSlideChange}
           >
             {/* Render each card inside a slide */}
-            {[...Array(8)].map((_, index) => (
-              <div key={index} className="pr-4">
-                <Card />
+            {allRooms?.data?.map((room: IRoom) => (
+              <div key={room._id} className="pr-4">
+                <Link to={`/rooms/${room._id}`}>
+                  <Card
+                    image={room.images[0]}
+                    location={room.location}
+                    price={Number(room.price)}
+                    title={room.title}
+                    key={room._id}
+                    review={""}
+                  />
+                </Link>
               </div>
             ))}
           </Carousel>

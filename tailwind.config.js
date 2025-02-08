@@ -6,6 +6,7 @@ export default {
       colors: {
         primary: "#003B95",
         secondary: "#006ce4",
+        blue: "#006CE4",
         "btn-primary": "#006ce4",
         red: "#DC2626",
       subTitle: "#595959",

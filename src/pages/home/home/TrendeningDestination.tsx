@@ -2,8 +2,14 @@ import React from "react";
 import TrendingCard from "./TrendingCard";
 import { Link } from "react-router-dom";
 import Title from "./Title";
+import { useGetAllRoomsQuery } from "../../../redux/features/room/roomApi";
+import { IRoom } from "../../../types";
+import CustomDateRangepicker from "../../../components/sharred/CustomDateRangePicker";
 
 const TrendeningDestination = () => {
+  // fetc all rooms
+  const { data: allRooms } = useGetAllRoomsQuery(undefined);
+  console.log("allRooms", allRooms);
   const destinations = [
     {
       image:
@@ -33,41 +39,46 @@ const TrendeningDestination = () => {
   ];
 
   return (
-    <div className="mt-[20px] md:mt-[30px]">
-      <Title
-        title="Trending destinations"
-        subTitle="Travelers searching for Bangladesh also booked here"
-      />
+    <div>
+      <div className="mt-[20px] md:mt-[30px]">
+        <Title
+          title="Trending destinations"
+          subTitle="Travelers searching for Bangladesh also booked here"
+        />
 
-      <div className=" mt-[15px] md:mt-[20px]">
-        {/* for large screen devices */}
-        <section className="md:block hidden">
-          <div className="grid  grid-cols-2 gap-4">
-            {destinations.slice(0, 2).map((place) => (
-              <Link to="/rooms">
-                <TrendingCard image={place.image} place={place.title} />
-              </Link>
-            ))}
-          </div>
-          <div className="grid  grid-cols-3 gap-4 mt-4">
-            {destinations.slice(2, 5).map((place) => (
-              <Link to="/rooms">
-                <TrendingCard image={place.image} place={place.title} />
-              </Link>
-            ))}
-          </div>
-        </section>
+        <div className=" mt-[15px] md:mt-[20px]">
+          {/* for large screen devices */}
+          <section className="md:block hidden">
+            <div className="grid  grid-cols-2 gap-4">
+              {allRooms?.data?.map((room: IRoom) => (
+                <TrendingCard images={room.images} place={room.location} />
+              ))}
+            </div>
+            <div className="grid  grid-cols-3 gap-4 mt-4">
+              {destinations.slice(2, 5).map((place) => (
+                <Link to="/rooms">
+                  <TrendingCard image={place.image} place={place.title} />
+                </Link>
+              ))}
+            </div>
+          </section>
 
-        {/* for small devices */}
-        <section className="block md:hidden overflow-x-auto">
-          <div className="flex gap-4">
-            {destinations.map((place, index) => (
+          {/* for small devices */}
+          <section className="block md:hidden overflow-x-auto">
+            <div className="flex gap-4">
+              {/* {destinations.map((place, index) => (
               <div key={index} className=" flex-shrink-0">
                 <TrendingCard image={place.image} place={place.title} />
               </div>
-            ))}
-          </div>
-        </section>
+            ))} */}
+              {allRooms?.data?.map((room: IRoom) => (
+                <div key={room._id} className=" flex-shrink-0">
+                  <TrendingCard images={room.images} place={room.location} />
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );

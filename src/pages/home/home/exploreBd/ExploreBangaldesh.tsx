@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-// import { useGetAllRoomsQuery } from "../../../redux/features/room/roomApi";
-// import ExploreBDCard from "./ExploreBDCard";
 import { Link } from "react-router-dom";
 import Title from "../Title";
-import CarouselComponent from "./Carousel";
 import Card from "./Card";
 import { useGetAllRoomsQuery } from "../../../../redux/features/room/roomApi";
-// import Title from "./Title";
-// import CarouselComponent from "./exploreBd/Carousel";
-// import Card from "../../../components/sharred/Card";
+import ExploreBDCarouselComponent from "./Carousel";
+
 const ExploreBangladesh = () => {
-  const { data: roomInfo, isLoading } = useGetAllRoomsQuery(undefined);
-  if (isLoading) {
+  // fetch all rooms
+  const { data: allRooms, isLoading: roomDataLoading } =
+    useGetAllRoomsQuery(null);
+
+  // handle roomData loading
+  if (roomDataLoading) {
     return <p>Loading ...</p>;
   }
 
@@ -57,8 +57,10 @@ const ExploreBangladesh = () => {
           subTitle="These popular destinations have a lot to offer"
         />
       </div>
+
+      {/* for large screen */}
       <div className="mt-[15px] md:mt-[20px] md:block hidden">
-        <CarouselComponent />
+        <ExploreBDCarouselComponent rooms={allRooms?.data} />
       </div>
 
       {/* For small screens, enable horizontal scrolling */}

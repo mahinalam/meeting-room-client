@@ -8,7 +8,7 @@ const QuickAndEasy = () => {
   const [activeButton, setActiveButton] = useState("romance");
 
   return (
-    <div>
+    <div className="cursor-pointer">
       {/* title section */}
       <section className="mt-[20px] md:mt-[30px]">
         <Title

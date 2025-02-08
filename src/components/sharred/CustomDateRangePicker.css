@@ -1,0 +1,53 @@
+.booking-calendar {
+    border: none; /* Remove container border */
+    border-radius: 12px;
+    padding: 10px;
+    background-color: transparent; /* Fully transparent background */
+    font-size: 16px;
+    box-shadow: none; /* No shadow */
+  }
+  
+  .booking-calendar:hover,
+  .booking-calendar:focus-within {
+    border: none; /* No border on hover/focus */
+    box-shadow: none; /* No shadow on hover/focus */
+  }
+  
+  .booking-calendar input {
+    color: #333; /* Input text color */
+    font-weight: 500;
+    background-color: transparent; /* Transparent input background */
+    border: none !important; /* Ensure no border */
+    outline: none !important; /* Remove outline on focus */
+    box-shadow: none !important; /* Remove focus shadow */
+  }
+  
+  .booking-calendar .ant-picker {
+    background-color: transparent !important; /* Transparent background for picker */
+    border: none !important; /* No border for picker */
+    box-shadow: none !important; /* Remove box shadow */
+  }
+  
+  .booking-calendar .ant-picker-focused {
+    border: none !important; /* Ensure no border on focus */
+    box-shadow: none !important; /* Ensure no focus shadow */
+  }
+  
+  .booking-calendar .ant-picker-input {
+    border: none !important; /* No border around the input fields */
+  }
+  
+  .booking-calendar .ant-picker-input input {
+    border: none !important; /* Ensure input fields have no border */
+    border-bottom: none !important; /* Remove bottom border */
+    box-shadow: none !important; /* Remove any default shadows */
+  }
+
+
+  .booking-calendar .ant-picker-dropdown {
+    border-radius: 12px; /* Rounded dropdown */
+  }
+  
+
+  
+

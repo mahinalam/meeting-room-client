@@ -1,15 +1,30 @@
 import React from "react";
 import Container from "../../components/sharred/Container";
 import AminitiesCard from "./AminitiesCard";
+import { IRoom } from "../../types";
 
-const RoomDetailsCard = () => {
+const RoomDetailsCard = ({ roomData }: { roomData: IRoom }) => {
+  const {
+    _id,
+    bathRoom,
+    bedRoom,
+    images,
+    from,
+    guests,
+    host,
+    location,
+    price,
+    title,
+    to,
+  } = roomData;
   return (
     <div>
       {/* title & save section */}
       <div className="md:block hidden">
         <div className="flex items-center justify-between mb-4">
-          <div className="text-title text-2xl font-bold">Room title</div>
+          <div className="text-title text-2xl font-bold">{title}</div>
           <div className="flex items-center">
+            {/* share icon */}
             <span className="flex items-center gap-1">
               <span>
                 <svg
@@ -29,6 +44,7 @@ const RoomDetailsCard = () => {
               </span>
               <span>Share</span>
             </span>
+            {/* save icon */}
             <span className="flex items-center gap-1">
               <span>
                 <svg
@@ -60,30 +76,21 @@ const RoomDetailsCard = () => {
             {/* left image */}
             <div>
               <img
-                src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
+                src={images?.[0]}
                 alt=""
-                className="rounded-s-xl"
+                className="rounded-s-xl w-full h-full"
               />
             </div>
             {/* right images */}
             <div className="grid grid-cols-2 gap-2">
+              <img src={images?.[1]} alt="" className="w-full h-full" />
               <img
-                src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
-                alt=""
-                className=""
+                src={images?.[2]}
+                alt="w-full object-cover"
+                className="w-full h-full"
               />
-              <img
-                src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
-                alt=""
-              />
-              <img
-                src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
-                alt=""
-              />
-              <img
-                src="https://a0.muscache.com/im/pictures/miso/Hosting-53436410/original/2dfebfdc-c502-4e55-b5f8-6ae6bd056de0.png?im_w=1200&im_format=avif"
-                alt=""
-              />
+              <img src={images?.[3]} alt="" className="w-full h-full" />
+              <img src={images?.[4]} alt="" className="w-full h-full" />
             </div>
           </section>
         </div>
@@ -99,14 +106,14 @@ const RoomDetailsCard = () => {
       {/* room  info */}
       <div className=" md:mt-6 mt-4">
         <p className="md:hidden block w-10/12 sm:w-full text-[22px] text-title font-medium mb-0">
-          Room in Maratua, Indonesia
+          {title}
         </p>
         <div className="md:py-0 py-4">
           <p className="md:text-[22px] text-sm text-title font-semibold mb-0">
-            Room in Maratua, Indonesia
+            Room in {location}
           </p>
           <p className="mb-0 md:text-lg text-sm text-title ">
-            2 bedrooms4 bedsShared bathroom
+            {bedRoom} bedrooms {bathRoom} bathrooms
           </p>
         </div>
         <div className="flex items-center gap-1">
@@ -142,6 +149,7 @@ const RoomDetailsCard = () => {
           <section>
             <div>
               <p className="mb-0 md:text-xl font-semibold text-base text-title">
+                {/* TODO: */}
                 Hosted By Mahin
               </p>
               <p className="mb-0 text-subTitle text-base">3 years hosting</p>
@@ -181,12 +189,14 @@ const RoomDetailsCard = () => {
           About this place
         </h1>
         <p>
+          {/* TODO: */}
           This villa boasts a 2-story floor plan, providing ample space for you
           and your loved ones to relax and unwind. With a generous area of 132
           square meters, including 1 king bed, 4 single beds, and a sofa bed,
           it's perfect for families or groups
         </p>
         <p className="pt-1">
+          {/* TODO: */}
           Step into the villa and be greeted by the breathtaking sea view from
           the large windows. The private garden adds a touch of tranquility,
           perfect for enjoying a morning coffee or an evening sunset.

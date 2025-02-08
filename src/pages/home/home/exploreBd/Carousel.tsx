@@ -1,21 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Carousel } from "antd";
+import { IRoom } from "../../../../types";
 
-const CarouselComponent = () => {
+const ExploreBDCarouselComponent = ({ rooms }: { rooms: IRoom[] }) => {
   const carouselRef = useRef<any>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(6);
-
-  const images = [
-    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
-    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
-    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
-    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
-    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
-    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
-    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
-    "https://q-xx.bstatic.com/xdata/images/country/170x136/361.jpg?k=fe1c45898bddb55365c8067a6b4b071e9ebb8d52150800edb53e105cf896866d&o=",
-  ];
 
   const handleSlideChange = (current: any) => {
     setCurrentSlide(current);
@@ -56,15 +46,17 @@ const CarouselComponent = () => {
         draggable
         afterChange={handleSlideChange}
       >
-        {images.map((src, index) => (
-          <div key={index} className="pr-4">
+        {rooms.map((room: IRoom) => (
+          <div key={room._id} className="pr-4">
             <img
-              src={src}
-              alt={`Slide ${index + 1}`}
+              src={room.images[0]}
               className="w-full h-auto rounded-lg shadow-md"
             />
             <div className="mt-3">
-              <p className="font-bold text-title text-base mb-0">Dhaka</p>
+              <p className="font-bold text-title text-base mb-0">
+                {room.location}
+              </p>
+              {/* TODO: fixed properties dynamically */}
               <p className="text-sm text-subTitle mt-1">200 Properties</p>
             </div>
           </div>
@@ -88,7 +80,7 @@ const CarouselComponent = () => {
         </button>
       )}
 
-      {currentSlide < images.length - slidesToShow && (
+      {/* {currentSlide < images.length - slidesToShow && (
         <button
           onClick={() => carouselRef.current?.next()}
           className="absolute top-1/3 right-0 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow-md hover:bg-gray-100 z-10"
@@ -102,9 +94,9 @@ const CarouselComponent = () => {
             <path d="M8.913 19.236a.9.9 0 0 0 .642-.266l6.057-6.057a1.3 1.3 0 0 0 .388-.945c.008-.35-.123-.69-.364-.945L9.58 4.966a.91.91 0 0 0-1.284 0 .896.896 0 0 0 0 1.284l5.694 5.718-5.718 5.718a.896.896 0 0 0 0 1.284.88.88 0 0 0 .642.266"></path>
           </svg>
         </button>
-      )}
+      )} */}
     </div>
   );
 };
 
-export default CarouselComponent;
+export default ExploreBDCarouselComponent;

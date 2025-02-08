@@ -16,7 +16,7 @@ const Home = () => {
   console.log(user);
   return (
     <Container>
-      <Hero />
+      {/* <Hero /> */}
       <TrendeningDestination />
       <UniqueProperties />
       <QuickAndEasy />

@@ -4,17 +4,17 @@ const roomApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllRooms: builder.query({
       query: () => ({
-        url: "/rooms",
+        url: "/room",
         method: "GET",
       }),
       providesTags: ["room"],
     }),
     getSingleRoom: builder.query({
       query: (id) => ({
-        url: `/rooms/${id}`,
+        url: `/room/${id}`,
         method: "GET",
       }),
-      // providesTags: ["room"],
+      providesTags: ["room"],
     }),
     createRoom: builder.mutation({
       query: (roomInfo) => ({
